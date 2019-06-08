@@ -1,4 +1,4 @@
-#include "config.h"
+#include "xps-config.h"
 
 using namespace std;
 
@@ -7,6 +7,7 @@ int main(int argc, char const *argv[]){
 	char CVC_Input;
 	int E_Flag = -1;
 
+	cout << "Due to technical issues, control of ThrottleStop has been disabled.\n";
 	cout << "Execution of CVC without a valid input device will generate errors.\nExecute CVC? [Y/N]\n";
 
 	while(E_Flag != 0){
@@ -27,7 +28,7 @@ int main(int argc, char const *argv[]){
 		cout << "CVC Disabled.\n";
 	}
 
-	system("taskkill /F /T /IM ThrottleStop.exe");
+	//system("taskkill /F /T /IM ThrottleStop.exe");
 
 	if(!ShellExecuteA(NULL, "open", PATH_01, NULL, NULL, SW_HIDE)){
 		cout << "Error: Could not open BNET.\n";
@@ -42,9 +43,12 @@ int main(int argc, char const *argv[]){
 	if(!ShellExecuteA(NULL, "open", PATH_03, NULL, NULL, SW_HIDE)){
 		cout << "Error: Could not open MSI.\n";
 	}
+	
+	/*
 	if(!ShellExecuteA(NULL, "open", PATH_04, NULL, NULL, SW_HIDE)){
 		cout << "Error: Could not open TS.\n";
 	}
+	*/
 
 	cout << "Execution complete. Press any key to exit.\n";
 
