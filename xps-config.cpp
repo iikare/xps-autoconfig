@@ -4,23 +4,44 @@ using namespace std;
 
 int main(int argc, char const *argv[]){
 
-	char CVC_Input;
+	char PEACE_Input = ' ';
+	char CVC_Input = ' ';
 	int E_Flag = -1;
 
 	cout << "Due to technical issues, control of ThrottleStop has been disabled.\n";
-	cout << "Execution of CVC without a valid input device will generate errors.\nExecute CVC? [Y/N]\n";
+	cout << "Initialize microphone? [Y/N]\n";
 
 	while(E_Flag != 0){
 		cout << "\n";
-		cin >> CVC_Input;
+		cin >> PEACE_Input;
 		cout << "\n";
 
-		if(!(CVC_Input == 'y' || CVC_Input == 'n')){
+		if(!(PEACE_Input == 'y' || PEACE_Input == 'n')){
 			cout << "Error: Invalid input.\n";
 			E_Flag = 1;
 		}
 		else{
 			E_Flag =  0;
+		}
+	}
+
+	if(PEACE_Input == 'y'){
+		E_Flag = 1;
+
+		cout << "Execution of CVC without a valid input device will generate errors.\nExecute CVC? [Y/N]\n";
+
+		while(E_Flag != 0){
+			cout << "\n";
+			cin >> CVC_Input;
+			cout << "\n";
+
+			if(!(CVC_Input == 'y' || CVC_Input == 'n')){
+				cout << "Error: Invalid input.\n";
+				E_Flag = 1;
+			}
+			else{
+				E_Flag =  0;
+			}
 		}
 	}
 
@@ -34,12 +55,6 @@ int main(int argc, char const *argv[]){
 		cout << "Error: Could not open BNET.\n";
 	}
 
-	if(CVC_Input == 'y'){
-		if(!ShellExecuteA(NULL, "open", PATH_02, NULL, NULL, SW_HIDE)){
-			cout << "Error: Could not open CVC.\n";
-		}
-	}
-
 	if(!ShellExecuteA(NULL, "open", PATH_03, NULL, NULL, SW_HIDE)){
 		cout << "Error: Could not open MSI.\n";
 	}
@@ -49,6 +64,18 @@ int main(int argc, char const *argv[]){
 		cout << "Error: Could not open TS.\n";
 	}
 	*/
+	
+	if(PEACE_Input == 'y'){
+		if(!ShellExecuteA(NULL, "open", PATH_05, NULL, NULL, SW_HIDE)){
+			cout << "Error: Could not open PEACE.\n";
+		}
+
+		if(CVC_Input == 'y'){
+			if(!ShellExecuteA(NULL, "open", PATH_02, NULL, NULL, SW_HIDE)){
+				cout << "Error: Could not open CVC.\n";
+			}
+		}
+	}
 
 	cout << "Execution complete. Press any key to exit.\n";
 
