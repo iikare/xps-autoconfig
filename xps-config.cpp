@@ -17,7 +17,7 @@ int main(int argc, char const *argv[]){
 		cout << "\n";
 
 		if(!(PEACE_Input == 'y' || PEACE_Input == 'n')){
-			cout << "Error: Invalid input.\n";
+			cout << "Error: Invalid input. Try again.\n";
 			E_Flag = 1;
 		}
 		else{
@@ -36,7 +36,7 @@ int main(int argc, char const *argv[]){
 			cout << "\n";
 
 			if(!(CVC_Input == 'y' || CVC_Input == 'n')){
-				cout << "Error: Invalid input.\n";
+				cout << "Error: Invalid input. Try again.\n";
 				E_Flag = 1;
 			}
 			else{
